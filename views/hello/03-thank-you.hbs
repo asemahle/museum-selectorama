@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <script src="/javascripts/utils.js"></script>
+</head>
+<body onunload="">
+
+<h1>Thank you</h1>
+<p>please remember to complete the follow up survey at the end of the exhibit</p>
+<div id="exit">Exit</div>
+
+<script>
+    let exit = function() {
+        window.location.assign("/hello/01-hello");
+    };
+
+    // go back to intro on click 'exit'
+    document.getElementById("exit").addEventListener("click", exit);
+
+    // go back to intro after 30seconds
+    setTimeout(exit, 30 * 1000);
+
+</script>
+
+</body>
+</html>

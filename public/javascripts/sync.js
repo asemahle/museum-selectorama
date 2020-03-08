@@ -49,36 +49,6 @@ document.getElementById('user-list').addEventListener('click', (e) => {
     }
 });
 
-document.getElementById("selection-area").addEventListener('click', (e) => {
-    const $e = document.getElementById("selection-area");
-    const bounds = $e.getBoundingClientRect();
-
-    const $dot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
-    const $newDot = $dot.cloneNode(true);
-    const dotBounds = $dot.getBoundingClientRect();
-    $newDot.style.left = (e.pageX - dotBounds.width / 2) + "px";
-    $newDot.style.top = (e.pageY - dotBounds.height / 2) + "px";
-    $e.prepend($newDot);
-
-    const x = e.clientX - bounds.x - bounds.width/2;
-    const y = e.clientY - bounds.y - bounds.height/2;
-
-    fetch(`/data/complete/${selectedID}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            x: x,
-            y: y
-        }),
-    });
-
-    console.log(x, y);
-
-    CompleteSelection();
-});
-
 // listen for updates
 const source = new EventSource('/data/stream');
 source.addEventListener('message', function(e) {

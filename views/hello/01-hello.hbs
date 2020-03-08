@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <script src="/javascripts/utils.js"></script>
+</head>
+<body onunload="">
+
+<h1>Hello</h1>
+<p>Filler text</p>
+
+<input type="text" id="name">
+
+<div id="submit" class="hide">
+    Submit
+</div>
+
+<script>
+    let submitContainer = document.getElementById("submit");
+    let inputField = document.getElementById("name");
+
+    // clear input on reload
+    inputField.value = "";
+
+    // show and hide the submit button based on whether there is a name
+    inputField.addEventListener("input", function() {
+        if (this.value.trim().length) {
+            submitContainer.classList.remove("hide");
+        } else {
+            submitContainer.classList.add("hide");
+        }
+    });
+
+    // go to next page on submit
+    submitContainer.addEventListener("click", function() {
+        let params = {
+            name: inputField.value.trim()
+        };
+        window.location.assign("/hello/02-input-feelings?" + encodeGetParams(params));
+    });
+</script>
+
+</body>
+</html>

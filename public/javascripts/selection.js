@@ -1,66 +1,53 @@
-/**
- * @return {string}
- */
-function GetDisplayID() {
-    const colours = ['Red', 'Yellow', 'Pink', 'Green', 'Purple', 'Orange', 'Blue', 'Black', 'White'];
-    const animals = ['Aardvark', 'Orangutan', 'Hippopotamus', 'Giraffe', 'Platypus', 'Sea Slug', 'Jellyfish', 'Potato'];
-    return colours[Math.floor(Math.random() * colours.length)] + ' ' +
-        animals[Math.floor(Math.random() * animals.length)];
-}
+{
+    let mousedown = false;
 
-function Success(displayID) {
-    const $message = document.getElementById('success-message');
-    $message.innerText = `Thank you, ${displayID}`;
+    let eventElem = document.getElementById("selection-events");
+    let first = true;
 
-    const $default = document.getElementById("default");
-    $default.classList.add('hide');
-    const $success = document.getElementById('success');
-    $success.classList.remove('hide');
+    let update = function(e) {
+        if (!mousedown) return;
 
-    setTimeout(() => {
-        $default.classList.remove('hide');
-        $success.classList.add('hide');
-    }, 2500);
-}
+        let $e = document.getElementById("selection-area");
+        if (first) {
+            first = false;
+            let $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
+            let $dot = $parentDot.cloneNode(true);
+            $e.prepend($dot);
+        }
+        let $dot = $e.getElementsByClassName("dot")[0];
+        const dotBounds = $dot.getBoundingClientRect();
+        let bounds = $e.getBoundingClientRect();
+        let dotPos = {
+            x: clamp(e.pageX, bounds.x, bounds.x + bounds.width) - dotBounds.width/2,
+            y: clamp(e.pageY, bounds.y, bounds.y + bounds.height) - dotBounds.height/2
+        };
 
-function Failure() {
-    // hmmm...
-}
 
-document.getElementById("selection-area").addEventListener('click', (e) => {
-    const $e = document.getElementById("selection-area");
-    const bounds = $e.getBoundingClientRect();
+        $dot.style.left = dotPos.x + "px";
+        $dot.style.top = dotPos.y + "px";
 
-    const $dot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
-    const $newDot = $dot.cloneNode(true);
-    const dotBounds = $dot.getBoundingClientRect();
-    $newDot.style.left = (e.pageX - dotBounds.width / 2) + "px";
-    $newDot.style.top = (e.pageY - dotBounds.height / 2) + "px";
-    $e.prepend($newDot);
+        let x = ((dotPos.x + dotBounds.width/2 - bounds.x) / bounds.width) * 2 - 1;
+        let y = ((dotPos.y + dotBounds.height/2 - bounds.y) / bounds.height) * -2 + 1;
 
-    const displayID = GetDisplayID();
-    const x = e.clientX - bounds.x - bounds.width/2;
-    const y = e.clientY - bounds.y - bounds.height/2;
-
-    fetch('/data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            displayID: displayID,
-            x: x,
-            y: y
-        }),
-    }).then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            Success(displayID);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            Failure()
+        let event = new CustomEvent("update", {
+            detail: {
+                x: x,
+                y: y
+            }
         });
+        eventElem.dispatchEvent(event);
+    };
 
-    console.log(x, y);
-});
+    document.getElementById("area-container").addEventListener('mousemove', update);
+    document.getElementById("area-container").addEventListener('mousedown', function(e) {
+        mousedown = true;
+        update(e);
+    });
+
+    document.body.addEventListener("mousedown", function() {
+        mousedown = true;
+    });
+    document.body.addEventListener("mouseup", function() {
+        mousedown = false;
+    });
+}

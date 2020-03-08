@@ -58,8 +58,19 @@ router.post('/', function (req, res) {
   const DB = require(process.env.DBJS);
   const db = new DB(process.env.DB);
 
-  db.addUser(req.body.displayID, req.body.x, req.body.y).then((user) =>{
+  db.addUser(req.body.displayID, req.body.x, req.body.y).then((user) => {
     eventEmitter.emit('addUser', user.id);
+    res.send({id: user.id});
+  });
+  db.close();
+});
+
+// POST a new user who is complete
+router.post('/fullAdd', function (req, res) {
+  const DB = require(process.env.DBJS);
+  const db = new DB(process.env.DB);
+
+  db.fullAdd(req.body.x1, req.body.y1, req.body.x2, req.body.y2).then((user) => {
     res.send({id: user.id});
   });
   db.close();
@@ -82,7 +93,7 @@ router.delete('/:userID', function(req, res) {
   const DB = require(process.env.DBJS);
   const db = new DB(process.env.DB);
 
-  db.deleteUser(req.params.userID).then(() =>{
+  db.deleteUser(req.params.userID).then(() => {
     res.send();
   });
   db.close();

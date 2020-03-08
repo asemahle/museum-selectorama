@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Goodbye</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <script src="/javascripts/utils.js"></script>
+</head>
+<body onunload="">
+
+<div id="default">
+    <h1>Hi, <span id="name"></span></h1>
+    <h1>How do you feel?</h1>
+    {{> selection_area}}
+</div>
+
+<script>
+    let url = new URL(window.location.href);
+    let name = url.searchParams.get("name");
+    let id = url.searchParams.get("id");
+
+    // set the name
+    document.getElementById("name").innerText = name;
+
+    // go back on 'restart'
+    document.getElementById("restart").addEventListener("click", function() {
+        window.location.assign("/goodbye/01-hello");
+    });
+
+    // selection area controls
+    let point = {x: 0, y: 0};
+    let nextElem = document.getElementById("next");
+    let eventElem = document.getElementById("selection-events");
+    eventElem.addEventListener('update', function(e) {
+        point.x = e.detail.x;
+        point.y = e.detail.y;
+        nextElem.classList.remove("hide");
+    });
+
+    // go forward on 'done'
+    document.getElementById("next").addEventListener("click", function() {
+        fetch('/data/complete/' + id, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userID: id,
+                x: point.x,
+                y: point.y
+            }),
+        }).then((data) => {
+            window.location.assign("/goodbye/05-thank-you");
+        }).catch((error) => {
+            window.location.assign("/goodbye/05-thank-you");
+        });
+    });
+
+</script>
+<script src="/javascripts/selection.js"></script>
+
+</body>
+</html>
