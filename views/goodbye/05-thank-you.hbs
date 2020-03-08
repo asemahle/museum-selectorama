@@ -12,15 +12,15 @@
 <div id="exit">Exit</div>
 
 <script>
-    let exit = function() {
+    let Exit = function() {
         window.location.assign("/goodbye/01-hello");
     };
 
     // go back to intro on click 'exit'
-    document.getElementById("exit").addEventListener("click", exit);
+    document.getElementById("exit").addEventListener("click", Exit);
 
     // go back to intro after 30seconds
-    setTimeout(exit, 30 * 1000);
+    setTimeout(Exit, 30 * 1000);
 
 </script>
 
