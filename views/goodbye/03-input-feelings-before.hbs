@@ -5,6 +5,7 @@
     <title>Goodbye</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
     <script src="/javascripts/utils.js"></script>
+    <script src="/javascripts/exit.js"></script>
 </head>
 <body onunload="">
 
@@ -37,6 +38,9 @@
         };
         window.location.assign("/goodbye/04-input-feelings-after?" + encodeGetParams(params));
     });
+
+    // go back to intro after timeout
+    SetExitTimer();
 
 </script>
 <script src="/javascripts/selection.js"></script>

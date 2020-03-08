@@ -5,6 +5,7 @@
     <title>Goodbye</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
     <script src="/javascripts/utils.js"></script>
+    <script src="/javascripts/exit.js"></script>
 </head>
 <body onunload="">
 
@@ -12,16 +13,11 @@
 <div id="exit">Exit</div>
 
 <script>
-    let Exit = function() {
-        window.location.assign("/goodbye/01-hello");
-    };
-
     // go back to intro on click 'exit'
     document.getElementById("exit").addEventListener("click", Exit);
 
     // go back to intro after 30seconds
-    setTimeout(Exit, 30 * 1000);
-
+    SetExitTimer(30 * 1000);
 </script>
 
 </body>
