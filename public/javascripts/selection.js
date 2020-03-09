@@ -38,16 +38,38 @@
         eventElem.dispatchEvent(event);
     };
 
+    /* events handling to control the surface */
+    // mouse controls
     document.getElementById("area-container").addEventListener('mousemove', update);
     document.getElementById("area-container").addEventListener('mousedown', function(e) {
         mousedown = true;
         update(e);
     });
 
-    document.body.addEventListener("mousedown", function() {
-        mousedown = true;
+    // touch controls
+    document.getElementById("area-container").addEventListener('touchmove', (e) => {
+        e.pageX = e.touches[0].pageX;
+        e.pageY = e.touches[0].pageY;
+        update(e);
     });
-    document.body.addEventListener("mouseup", function() {
-        mousedown = false;
+    document.getElementById("area-container").addEventListener('touchstart', function(e) {
+        mousedown = true;
+        e.pageX = e.changedTouches[0].pageX;
+        e.pageY = e.changedTouches[0].pageY;
+        update(e);
+    });
+
+    // detect finger/mouse up
+    ['mousedown', 'touchstart'].forEach((eventType) => {
+        document.body.addEventListener(eventType, function() {
+            mousedown = true;
+        });
+    });
+
+    //detect finger/mouse down
+    ['mouseup', 'touchend', 'touchcancel'].forEach((eventType) => {
+        document.body.addEventListener(eventType, function() {
+            mousedown = false;
+        });
     });
 }

@@ -11,6 +11,10 @@
   border-radius: 100px;
 }
 
+.no-select {
+  user-select: none;
+}
+
 .selected {
   font-weight: bold;
 }
