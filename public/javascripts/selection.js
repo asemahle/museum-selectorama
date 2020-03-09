@@ -50,7 +50,8 @@
     document.getElementById("area-container").addEventListener('touchmove', (e) => {
         e.pageX = e.touches[0].pageX;
         e.pageY = e.touches[0].pageY;
-        document.getElementById("loc").innerText = "touchmove: " + e.pageX + " , " + e.pageY + " Num: " + e.touches.length;
+        document.getElementById("loc").innerText = "touchmove: " + e.pageX + " , " + e.pageY + " Num: " + e.touches.length + " | " + e.touches[0].pageX
+            + " | " + e.touches[0].pageY + " | " + e.touches[0].clientX + " | " + e.touches[0].clientY;
         update(e);
     });
     document.getElementById("area-container").addEventListener('touchstart', function(e) {
