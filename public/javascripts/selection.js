@@ -4,7 +4,7 @@
     let eventElem = document.getElementById("selection-events");
     let first = true;
 
-    let update = function(e) {
+    let update = function(pos) {
         if (!mousedown) return;
 
         let $e = document.getElementById("selection-area");
@@ -18,8 +18,8 @@
         const dotBounds = $dot.getBoundingClientRect();
         let bounds = $e.getBoundingClientRect();
         let dotPos = {
-            x: clamp(e.pageX, bounds.x, bounds.x + bounds.width) - dotBounds.width/2,
-            y: clamp(e.pageY, bounds.y, bounds.y + bounds.height) - dotBounds.height/2
+            x: clamp(pos.pageX, bounds.x, bounds.x + bounds.width) - dotBounds.width/2,
+            y: clamp(pos.pageY, bounds.y, bounds.y + bounds.height) - dotBounds.height/2
         };
 
 
@@ -48,18 +48,19 @@
 
     // touch controls
     document.getElementById("area-container").addEventListener('touchmove', (e) => {
-        e.pageX = e.touches[0].pageX;
-        e.pageY = e.touches[0].pageY;
-        document.getElementById("loc").innerText = "touchmove: " + e.pageX + " , " + e.pageY + " Num: " + e.touches.length + " | " + e.touches[0].pageX
+        document.getElementById("loc").innerText = " Num: " + e.touches.length + " | " + e.touches[0].pageX
             + " | " + e.touches[0].pageY + " | " + e.touches[0].clientX + " | " + e.touches[0].clientY;
-        update(e);
+        update({
+            pageX: e.changedTouches[0].pageX,
+            pageY: e.changedTouches[0].pageY
+        });
     });
     document.getElementById("area-container").addEventListener('touchstart', function(e) {
         mousedown = true;
-        e.pageX = e.changedTouches[0].pageX;
-        e.pageY = e.changedTouches[0].pageY;
-        document.getElementById("loc").innerText = "touchstart: " + e.pageX + " , " + e.pageY;
-        update(e);
+        update({
+            pageX: e.changedTouches[0].pageX,
+            pageY: e.changedTouches[0].pageY
+        });
     });
 
     // detect finger/mouse up
