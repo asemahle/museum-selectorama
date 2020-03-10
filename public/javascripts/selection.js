@@ -48,8 +48,6 @@
 
     // touch controls
     document.getElementById("area-container").addEventListener('touchmove', (e) => {
-        document.getElementById("loc").innerText = " Num: " + e.touches.length + " | " + e.touches[0].pageX
-            + " | " + e.touches[0].pageY + " | " + e.touches[0].clientX + " | " + e.touches[0].clientY;
         update({
             pageX: e.changedTouches[0].pageX,
             pageY: e.changedTouches[0].pageY
