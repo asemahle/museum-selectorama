@@ -34,6 +34,12 @@
 #selection-area {
   width: 500px;
   height: 500px;
-  border-style: groove;
+  /*border-style: groove;*/
   position: relative;
+}
+
+#user-list {
+  max-height: 420px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
