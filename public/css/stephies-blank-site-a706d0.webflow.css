@@ -1,0 +1,288 @@
+.utility-page-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100%;
+  max-width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.utility-page-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 260px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+}
+
+.utility-page-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.text-block-4 {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .text-field {
+    width: 65%;
+    height: 100px;
+    margin-right: 0px;
+    margin-left: 60px;
+    padding-left: 49px;
+    border-radius: 16px;
+    background-color: hsla(0, 0%, 100%, 0.52);
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+  }
+  .heading {
+    margin-top: 0px;
+    margin-left: 60px;
+    font-family: Poppins, sans-serif;
+    font-size: 85px;
+  }
+  .submit-button {
+    width: 240px;
+    height: 67px;
+    margin-bottom: 29px;
+    margin-left: 60px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fff;
+    border-radius: 16px;
+    background-color: rgba(56, 152, 236, 0);
+    font-family: Roboto, sans-serif;
+    color: #fff;
+    font-size: 28px;
+    cursor: default;
+  }
+  .submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.28);
+  }
+  .paragraph {
+    margin-top: 41px;
+    margin-bottom: 38px;
+    margin-left: 60px;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .paragraph-2 {
+    margin-left: 60px;
+  }
+  .body {
+    background-color: #f4b953;
+  }
+  .body-2 {
+    background-color: #85cec7;
+  }
+  .heading-2 {
+    margin-top: 100px;
+    margin-left: 60px;
+    font-family: Poppins, sans-serif;
+    font-size: 40px;
+  }
+  .paragraph-3 {
+    margin-top: 60px;
+    margin-bottom: 29px;
+    margin-left: 60px;
+    font-size: 38px;
+  }
+  .image {
+    position: relative;
+    left: auto;
+    overflow: visible;
+    width: auto;
+    max-width: 90%;
+    margin-top: 32px;
+    margin-right: 44px;
+    margin-left: 35px;
+    float: none;
+    clear: both;
+    opacity: 1;
+    text-align: left;
+    -o-object-fit: fill;
+    object-fit: fill;
+    -o-object-position: 50% 50%;
+    object-position: 50% 50%;
+  }
+  .button {
+    position: static;
+    display: block;
+    overflow: visible;
+    width: 240px;
+    height: 67px;
+    margin-top: 0px;
+    margin-left: 117px;
+    padding-top: 26px;
+    float: none;
+    clear: none;
+    border: 1px none #000;
+    border-radius: 16px;
+    background-color: #5dbab1;
+    box-shadow: 1px 1px 8px -13px #000;
+    opacity: 1;
+    direction: ltr;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0px;
+    text-transform: none;
+    cursor: pointer;
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+  .button:hover {
+    background-color: #46aaa0;
+  }
+  .button-2 {
+    width: 240px;
+    height: 67px;
+    margin-top: 0px;
+    margin-left: 3px;
+    padding-top: 19px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fff;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 28px;
+    text-align: center;
+  }
+  .button-2:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+  .body-3 {
+    background-color: #85cec7;
+  }
+  .button-3 {
+    width: 240px;
+    height: 67px;
+    margin-left: 10px;
+    padding-top: 18px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fff;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    text-align: center;
+  }
+  .button-3:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .button-4 {
+    width: 240px;
+    height: 67px;
+    margin-left: 60px;
+    padding-top: 19px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #fff;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    text-align: center;
+  }
+  .button-4:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .text-block {
+    margin-top: 0px;
+    margin-bottom: 48px;
+    margin-left: 60px;
+    font-family: Poppins, sans-serif;
+    font-size: 85px;
+    font-weight: 700;
+  }
+  .text-block-2 {
+    margin-top: 70px;
+    margin-left: 60px;
+    font-family: Roboto, sans-serif;
+    font-size: 38px;
+    text-transform: lowercase;
+  }
+  .text-block-3 {
+    margin-top: 16px;
+    margin-bottom: 32px;
+    margin-left: 60px;
+    font-size: 18px;
+  }
+  .div-block {
+    height: 400px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .div-block-2 {
+    height: 120px;
+  }
+  .button-5 {
+    width: 320px;
+    height: 67px;
+    margin-left: 51px;
+    padding-top: 22px;
+    border-radius: 16px;
+    background-color: #eeac3a;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    text-align: center;
+  }
+  .button-5:hover {
+    background-color: #e59b1b;
+  }
+  .text-block-4 {
+    margin: 0px 124px 10px 60px;
+    padding: 14px 0px 13px 19px;
+    border-radius: 12px;
+    background-color: hsla(0, 0%, 100%, 0.43);
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+  }
+  .column {
+    position: static;
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+  .columns {
+    margin-top: 30px;
+  }
+}
+
+@font-face {
+  font-family: 'Glacialindifference';
+  src: url('../fonts/GlacialIndifference-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}

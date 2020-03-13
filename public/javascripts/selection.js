@@ -1,4 +1,24 @@
 {
+    setInterval( ()=> {
+        let $img = document.getElementById("img");
+        let bounds = $img.getBoundingClientRect();
+        let $p = document.getElementById("selection-area-padding");
+        let $e = document.getElementById("selection-area");
+
+        let top = 0.13;
+        let bottom = 0.84;
+        let left = 0.14;
+        let right = 0.88;
+
+        $p.style.paddingTop = bounds.height * top + "px";
+        $p.style.paddingBottom = bounds.height * (1 - bottom) + "px";
+        $p.style.paddingLeft = bounds.width * left + "px";
+        $p.style.paddingRight = bounds.width * (1 - right) + "px";
+
+        $e.style.width = bounds.width * (right - left) + "px";
+        $e.style.height = bounds.height * (bottom - top) + "px";
+    }, 500);
+
     let mousedown = false;
 
     let eventElem = document.getElementById("selection-events");
@@ -12,14 +32,15 @@
             first = false;
             let $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
             let $dot = $parentDot.cloneNode(true);
-            $e.prepend($dot);
+            $dot.classList.add('active-dot');
+            $e.append($dot);
         }
-        let $dot = $e.getElementsByClassName("dot")[0];
-        const dotBounds = $dot.getBoundingClientRect();
+        let $dot = $e.getElementsByClassName("active-dot")[0];
+        let dotBounds = $dot.getBoundingClientRect();
         let bounds = $e.getBoundingClientRect();
         let dotPos = {
-            x: clamp(pos.pageX, bounds.x, bounds.x + bounds.width) - dotBounds.width/2,
-            y: clamp(pos.pageY, bounds.y, bounds.y + bounds.height) - dotBounds.height/2
+            x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width/2,
+            y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height/2
         };
 
 
@@ -40,20 +61,21 @@
 
     /* events handling to control the surface */
     // mouse controls
-    document.getElementById("area-container").addEventListener('mousemove', update);
-    document.getElementById("area-container").addEventListener('mousedown', function(e) {
+    document.getElementById("selection-area-padding").addEventListener('mousemove', update);
+    document.getElementById("selection-area-padding").addEventListener('mousedown', function(e) {
         mousedown = true;
         update(e);
     });
 
     // touch controls
-    document.getElementById("area-container").addEventListener('touchmove', (e) => {
+    document.getElementById("selection-area-padding").addEventListener('touchmove', (e) => {
         update({
             pageX: e.changedTouches[0].pageX,
             pageY: e.changedTouches[0].pageY
         });
-    });
-    document.getElementById("area-container").addEventListener('touchstart', function(e) {
+        e.preventDefault();
+    }, {passive: false});
+    document.getElementById("selection-area-padding").addEventListener('touchstart', function(e) {
         mousedown = true;
         update({
             pageX: e.changedTouches[0].pageX,

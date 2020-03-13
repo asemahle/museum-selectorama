@@ -19,13 +19,21 @@
   font-weight: bold;
 }
 
-#area-container {
-  padding: 50px;
-  width: min-content;
+#selection-container {
+  position: relative;
+}
+
+#selection-area-padding {
+  margin-top: 32px;
+  margin-right: 44px;
+  margin-left: 35px;
+  position: absolute;
+  top: 0px;
 }
 
 #selection-area {
   width: 500px;
   height: 500px;
   border-style: groove;
+  position: relative;
 }
