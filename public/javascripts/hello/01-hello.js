@@ -52,7 +52,7 @@ function run() {
         let params = {
             name: inputField.value.trim()
         };
-        window.location.assign("/hello/02-input-feelings?" + encodeGetParams(params));
+        window.location.assign("/hello/02-input-feelings");
     });
 
     // listen for updates

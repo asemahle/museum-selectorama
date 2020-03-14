@@ -56,7 +56,7 @@ function run() {
         var params = {
             name: inputField.value.trim()
         };
-        window.location.assign("/hello/02-input-feelings?" + encodeGetParams(params));
+        window.location.assign("/hello/02-input-feelings");
     }); // listen for updates
 
     var source = new EventSource('/data/stream');
