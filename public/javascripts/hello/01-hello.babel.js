@@ -4,23 +4,28 @@ var activeNames = []; // names with incomplete records
 // get data to prevent duplicate names
 
 function UpdateNames() {
-    fetch('/data', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(function (response) {
-        return response.json();
-    }).then(function (data) {
+    function reqListener() {
+        var data = JSON.parse(this.response);
         console.log('Success:', data);
         activeNames = data.filter(function (user) {
             return user.IS_COMPLETED === 0;
         }).map(function (user) {
             return user.DISPLAY_ID.trim().toLowerCase();
         });
-    }).catch(function (error) {
-        console.error('Error:', error);
-    });
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "/data");
+    oReq.send(); // fetch('/data', { method: 'GET', headers: { 'Content-Type': 'application/json', }, })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log('Success:', data);
+    //         activeNames = data.filter(user => user.IS_COMPLETED === 0).map(user => user.DISPLAY_ID.trim().toLowerCase());
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
 }
 
 function run() {

@@ -2,15 +2,25 @@ let activeNames = []; // names with incomplete records
 
 // get data to prevent duplicate names
 function UpdateNames() {
-    fetch('/data', { method: 'GET', headers: { 'Content-Type': 'application/json', }, })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            activeNames = data.filter(user => user.IS_COMPLETED === 0).map(user => user.DISPLAY_ID.trim().toLowerCase());
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    function reqListener () {
+        let data = JSON.parse(this.response);
+        console.log('Success:', data);
+        activeNames = data.filter(user => user.IS_COMPLETED === 0).map(user => user.DISPLAY_ID.trim().toLowerCase());
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "/data");
+    oReq.send();
+    // fetch('/data', { method: 'GET', headers: { 'Content-Type': 'application/json', }, })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log('Success:', data);
+    //         activeNames = data.filter(user => user.IS_COMPLETED === 0).map(user => user.DISPLAY_ID.trim().toLowerCase());
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
 }
 
 function run() {
