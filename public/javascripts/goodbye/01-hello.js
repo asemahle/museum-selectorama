@@ -57,6 +57,7 @@ function SelectItem($item, user) {
 }
 
 function run() {
+    document.body.innerText = "heyo";
     // Un-select all items when page body is clicked
     document.body.addEventListener("click", function() {
         selectedUser = null;
@@ -91,6 +92,6 @@ function run() {
     // initial update
     UpdateList();
 
-    document.body.innerText = "heyo";
+
 }
 
