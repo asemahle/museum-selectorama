@@ -1,6 +1,6 @@
-let userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
-let selectedUser = null;
-let $selection = null;
+var userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
+var selectedUser = null;
+var $selection = null;
 
 // function UpdateList() {
 //     fetch('/data', {
