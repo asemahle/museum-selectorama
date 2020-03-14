@@ -18,34 +18,34 @@ let $selection = null;
 //         });
 // }
 //
-function RenderList(data) {
-    const $list = document.getElementById('user-list');
-    const now = new Date();
-    $list.innerHTML = '';
-    for (let user of data) {
-        if (user.IS_COMPLETED === 0 && now - (new Date(user.START_TIME)) < userNameTimeout ) {
-            // create list item
-            const $item = document.createElement('div');
-            $item.classList.add("text-block-4");
-            $item.setAttribute('data', user.ID);
-            $item.innerText = user.DISPLAY_ID;
-
-            // select item on click
-            $item.addEventListener("click", function(e) {
-                SelectItem($item, user);
-                e.stopPropagation();
-            });
-
-            // create the item in the selected state if its id is already selected
-            if (selectedUser !== null && selectedUser.ID === user.ID) {
-                SelectItem($item, user);
-            }
-
-            // add item to dom
-            $list.insertBefore($item, $list.firstChild);
-        }
-    }
-}
+// function RenderList(data) {
+//     const $list = document.getElementById('user-list');
+//     const now = new Date();
+//     $list.innerHTML = '';
+//     for (let user of data) {
+//         if (user.IS_COMPLETED === 0 && now - (new Date(user.START_TIME)) < userNameTimeout ) {
+//             // create list item
+//             const $item = document.createElement('div');
+//             $item.classList.add("text-block-4");
+//             $item.setAttribute('data', user.ID);
+//             $item.innerText = user.DISPLAY_ID;
+//
+//             // select item on click
+//             $item.addEventListener("click", function(e) {
+//                 SelectItem($item, user);
+//                 e.stopPropagation();
+//             });
+//
+//             // create the item in the selected state if its id is already selected
+//             if (selectedUser !== null && selectedUser.ID === user.ID) {
+//                 SelectItem($item, user);
+//             }
+//
+//             // add item to dom
+//             $list.insertBefore($item, $list.firstChild);
+//         }
+//     }
+// }
 //
 // // Causes an item in the list to enter the "selected" state
 // function SelectItem($item, user) {
