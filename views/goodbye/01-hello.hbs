@@ -29,10 +29,12 @@
 </div>
 <div class="columns w-row">
     <div class="column w-col w-col-6"><a id="not-found" class="button-5 w-button">I can&#x27;t find myself</a></div>
-    <div class="w-col w-col-6"><a id="submit" class="button-3 w-button">Continue</a></div>
+    <div class="w-col w-col-6"><a id="submit" class="hide button-3 w-button">Continue</a></div>
 </div>
 
 <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event){
+
     const userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
     let selectedUser = null;
     let $selection = null;
@@ -124,6 +126,9 @@
 
     // initial update
     UpdateList();
+
+        // your code here
+    });
 
 
 </script>
