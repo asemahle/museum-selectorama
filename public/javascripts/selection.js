@@ -81,6 +81,7 @@
             pageX: e.changedTouches[0].pageX,
             pageY: e.changedTouches[0].pageY
         });
+        e.preventDefault();
     });
 
     // detect finger/mouse up
