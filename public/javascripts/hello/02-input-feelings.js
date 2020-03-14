@@ -3,7 +3,7 @@ let name = url.searchParams.get("name");
 
 function run() {
     // set the name
-    document.getElementById("name").innerText = name;
+    document.getElementById("name").innerText = "Goose";
 
     // go back on 'restart'
     document.getElementById("restart").addEventListener("click", function () {
