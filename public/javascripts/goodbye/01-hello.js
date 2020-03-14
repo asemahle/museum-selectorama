@@ -90,5 +90,7 @@ function run() {
 
     // initial update
     UpdateList();
+
+    document.body.innerText = "heyo";
 }
 
