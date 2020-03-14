@@ -1,22 +1,22 @@
-// const userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
-// let selectedUser = null;
-// let $selection = null;
-//
-// function UpdateList() {
-//     fetch('/data', {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//     }).then((response) => response.json())
-//         .then((data) => {
-//             console.log('Success:', data);
-//             RenderList(data);
-//         })
-//         .catch((error) => {
-//             console.error('Error:', error);
-//         });
-// }
+const userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
+let selectedUser = null;
+let $selection = null;
+
+function UpdateList() {
+    fetch('/data', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            RenderList(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 //
 // function RenderList(data) {
 //     const $list = document.getElementById('user-list');
