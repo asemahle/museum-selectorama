@@ -1,4 +1,4 @@
-const userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
+let userNameTimeout = 2 * 60  * 60 * 1000; // 2hours
 let selectedUser = null;
 let $selection = null;
 
