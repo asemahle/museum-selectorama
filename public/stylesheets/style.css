@@ -44,3 +44,8 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+#img {
+  touch-action: none;
+  pointer-events: none;
+}
