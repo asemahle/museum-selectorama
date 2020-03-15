@@ -54,6 +54,7 @@
             }
         });
         eventElem.dispatchEvent(event);
+        document.getElementById("dbg").innerText = "x: " + x + " y: " + y;
     };
     /* events handling to control the surface */
     // mouse controls

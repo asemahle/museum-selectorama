@@ -57,6 +57,7 @@
             }
         });
         eventElem.dispatchEvent(event);
+        document.body.innerText += "| x: " + x + " y: " + y;
     };
 
     /* events handling to control the surface */
