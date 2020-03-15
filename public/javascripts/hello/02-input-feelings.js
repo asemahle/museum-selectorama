@@ -1,5 +1,5 @@
 let s = window.location.href;
-let name = s.substr(s.indexOf("?name=")+6);
+let name = decodeURIComponent(s.substr(s.indexOf("?name=")+6));
 
 function run() {
     // set the name

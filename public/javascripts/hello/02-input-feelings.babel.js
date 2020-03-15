@@ -1,7 +1,7 @@
 "use strict";
 
 var s = window.location.href;
-var name = s.substr(s.indexOf("?name=") + 6);
+var name = decodeURIComponent(s.substr(s.indexOf("?name=") + 6));
 
 function run() {
     // set the name
