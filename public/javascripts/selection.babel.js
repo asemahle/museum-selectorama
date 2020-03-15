@@ -35,9 +35,11 @@
             $dot.classList.add('active-dot');
 
             $e.append($dot);
+            return;
         }
         else {
             $dot = $e.getElementsByClassName("active-dot")[0];
+            if (!$dot) return;
         }
 
         var bounds = $e.getBoundingClientRect();
