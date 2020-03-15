@@ -35,32 +35,28 @@
             $dot.classList.add('active-dot');
 
             $e.append($dot);
-            return;
         }
-        else {
-            $dot = $e.getElementsByClassName("active-dot")[0];
-            if (!$dot) return;
-        }
+        $dot = $e.getElementsByClassName("active-dot")[0];
 
-        var bounds = $e.getBoundingClientRect();
-        var dotBounds = $dot.getBoundingClientRect();
-        document.body.innerText = pos.pageX + " | " + pos.pageY;
-
-        var dotPos = {
-            x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width / 2,
-            y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height / 2
-        };
-        $dot.style.left = dotPos.x + "px";
-        $dot.style.top = dotPos.y + "px";
-        var x = (dotPos.x + dotBounds.width / 2 - bounds.x) / bounds.width * 2 - 1;
-        var y = (dotPos.y + dotBounds.height / 2 - bounds.y) / bounds.height * -2 + 1;
-        var event = new CustomEvent("update", {
-            detail: {
-                x: x,
-                y: y
-            }
-        });
-        eventElem.dispatchEvent(event);
+        // var bounds = $e.getBoundingClientRect();
+        // var dotBounds = $dot.getBoundingClientRect();
+        // document.body.innerText = pos.pageX + " | " + pos.pageY;
+        //
+        // var dotPos = {
+        //     x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width / 2,
+        //     y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height / 2
+        // };
+        // $dot.style.left = dotPos.x + "px";
+        // $dot.style.top = dotPos.y + "px";
+        // var x = (dotPos.x + dotBounds.width / 2 - bounds.x) / bounds.width * 2 - 1;
+        // var y = (dotPos.y + dotBounds.height / 2 - bounds.y) / bounds.height * -2 + 1;
+        // var event = new CustomEvent("update", {
+        //     detail: {
+        //         x: x,
+        //         y: y
+        //     }
+        // });
+        // eventElem.dispatchEvent(event);
     };
     /* events handling to control the surface */
     // mouse controls
