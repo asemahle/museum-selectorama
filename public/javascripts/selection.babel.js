@@ -22,6 +22,8 @@
     var first = true;
 
     var update = function update(pos) {
+        document.body.innerText = pos.pageX + " | " + pos.pageY;
+
         if (!mousedown) return;
         var $e = document.getElementById("selection-area");
 
@@ -55,7 +57,6 @@
         });
         eventElem.dispatchEvent(event);
 
-        document.body.innerText = pos.pageX + " | " + pos.pageY;
     };
     /* events handling to control the surface */
     // mouse controls
