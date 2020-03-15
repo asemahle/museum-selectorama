@@ -45,8 +45,12 @@
         };
         $dot.style.left = dotPos.x + "px";
         $dot.style.top = dotPos.y + "px";
-        var x = (dotPos.x + dotBounds.width / 2 - bounds.left) / bounds.width * 2 - 1;
-        var y = (dotPos.y + dotBounds.height / 2 - bounds.top) / bounds.height * -2 + 1;
+        var minx = 0 - dotBounds.width / 2;
+        var maxx = bounds.width - dotBounds.width / 2;
+        var miny = 0 - dotBounds.height / 2;
+        var maxy = bounds.height - dotBounds.height / 2;
+        var x = (dotPos.x - minx) / (maxx - minx) * 2 - 1;
+        var y = (dotPos.y - miny) / (maxy - miny) * -2 + 1;
         var event = new CustomEvent("update", {
             detail: {
                 x: x,
