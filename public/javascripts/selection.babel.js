@@ -29,7 +29,7 @@
             first = false;
             var $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
 
-            var _$dot = $parentDot;
+            var _$dot = $parentDot.cloneNode(true);
 
             _$dot.classList.add('active-dot');
 
@@ -54,6 +54,8 @@
             }
         });
         eventElem.dispatchEvent(event);
+
+        document.body.innerText = pos.pageX + " | " + pos.pageY;
     };
     /* events handling to control the surface */
     // mouse controls
