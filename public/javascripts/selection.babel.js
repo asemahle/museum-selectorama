@@ -35,7 +35,7 @@
 
             $e.append(_$dot);
         }
-        document.body.innerText = "down";
+        return;
 
         var $dot = $e.getElementsByClassName("active-dot")[0];
         var dotBounds = $dot.getBoundingClientRect();
