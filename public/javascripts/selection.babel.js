@@ -85,6 +85,7 @@
 
     ['mousedown', 'touchstart'].forEach(function (eventType) {
         document.body.addEventListener(eventType, function () {
+            document.body.innerText = "down";
             mousedown = true;
         });
     }); //detect finger/mouse down
