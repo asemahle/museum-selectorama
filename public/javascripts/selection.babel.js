@@ -29,7 +29,7 @@
             first = false;
             var $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
 
-            var _$dot = $parentDot.cloneNode(true);
+            var _$dot = $parentDot;
 
             _$dot.classList.add('active-dot');
 
