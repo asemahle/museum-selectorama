@@ -22,6 +22,8 @@
     var first = true;
 
     var update = function update(pos) {
+        document.body.innerText = "down";
+
         if (!mousedown) return;
         var $e = document.getElementById("selection-area");
 
@@ -85,7 +87,6 @@
 
     ['mousedown', 'touchstart'].forEach(function (eventType) {
         document.body.addEventListener(eventType, function () {
-            document.body.innerText = "down";
             mousedown = true;
         });
     }); //detect finger/mouse down
