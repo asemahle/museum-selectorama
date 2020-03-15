@@ -22,8 +22,6 @@
     var first = true;
 
     var update = function update(pos) {
-        document.body.innerText = "down";
-
         if (!mousedown) return;
         var $e = document.getElementById("selection-area");
 
@@ -37,6 +35,7 @@
 
             $e.append(_$dot);
         }
+        document.body.innerText = "down";
 
         var $dot = $e.getElementsByClassName("active-dot")[0];
         var dotBounds = $dot.getBoundingClientRect();
