@@ -1,8 +1,8 @@
 "use strict";
 
 var encodeGetParams = function encodeGetParams(p) {
-    return Object.entries(p).map(function (kv) {
-        return kv.map(encodeURIComponent).join("=");
+    return Object.keys(p).map(function (k) {
+        return [encodeURIComponent(k), encodeURIComponent(p[k])].join("=");
     }).join("&");
 };
 
