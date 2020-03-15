@@ -34,7 +34,7 @@
 
             $dot.classList.add('active-dot');
 
-            $e.append($dot);
+            $e.appendChild($dot);
         }
         $dot = $e.getElementsByClassName("active-dot")[0];
 
