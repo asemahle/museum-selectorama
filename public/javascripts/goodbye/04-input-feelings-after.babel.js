@@ -5,7 +5,7 @@ var oldX = decodeURIComponent(s.substring(s.indexOf("?x=") + 3, s.indexOf("&")))
 var oldY = decodeURIComponent(s.substr(s.indexOf("&y=") + 3)); // go back on 'restart'
 
 document.getElementById("restart").addEventListener("click", function () {
-    window.location.assign("/goodbye/01-hello");
+    window.location.assign("/goodbye/00-welcome-back");
 }); // selection area controls
 
 var point = {
@@ -36,22 +36,7 @@ document.getElementById("next").addEventListener("click", function () {
         y1: oldY,
         x2: point.x,
         y2: point.y
-    })); // fetch('/data/fullAdd', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         x1: oldX,
-    //         y1: oldY,
-    //         x2: point.x,
-    //         y2: point.y
-    //     }),
-    // }).then((data) => {
-    //     window.location.assign("/goodbye/05-thank-you");
-    // }).catch((error) => {
-    //     window.location.assign("/goodbye/05-thank-you");
-    // });
+    }));
 }); // go back to intro after timeout
 
-SetExitTimer();
+SetExitTimer('00-welcome-back');

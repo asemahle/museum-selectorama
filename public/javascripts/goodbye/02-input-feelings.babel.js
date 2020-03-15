@@ -7,7 +7,7 @@ var name = decodeURIComponent(s.substr(s.indexOf("&name=") + 6)); // set the nam
 document.getElementById("name").innerText = name; // go back on 'restart'
 
 document.getElementById("restart").addEventListener("click", function () {
-    window.location.assign("/goodbye/01-hello");
+    window.location.assign("/goodbye/00-welcome-back");
 }); // selection area controls
 
 var point = {
@@ -37,21 +37,7 @@ document.getElementById("next").addEventListener("click", function () {
         userID: id,
         x: point.x,
         y: point.y
-    })); // fetch('/data/complete/' + id, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         userID: id,
-    //         x: point.x,
-    //         y: point.y
-    //     }),
-    // }).then((data) => {
-    //     window.location.assign("/goodbye/05-thank-you");
-    // }).catch((error) => {
-    //     window.location.assign("/goodbye/05-thank-you");
-    // });
+    }));
 }); // go back to intro after timeout
 
-SetExitTimer();
+SetExitTimer('00-welcome-back');

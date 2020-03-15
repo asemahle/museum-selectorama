@@ -13,20 +13,6 @@ function UpdateList() {
     oReq.addEventListener("load", reqListener);
     oReq.open("GET", "/data");
     oReq.send();
-
-    // fetch('/data', {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    // }).then((response) => response.json())
-    //     .then((data) => {
-    //         console.log('Success:', data);
-    //         RenderList(data);
-    //     })
-    //     .catch((error) => {
-    //         console.error('Error:', error);
-    //     });
 }
 
 function RenderList(data) {
@@ -101,5 +87,7 @@ function run() {
 
     // initial update
     UpdateList();
+
+    SetExitTimer('00-welcome-back', 30 * 1000);
 }
 

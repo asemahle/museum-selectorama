@@ -6,8 +6,8 @@ function run() {
     document.getElementById("name").innerText = name;
 
     // go back to intro on click 'exit'
-    document.getElementById("exit").addEventListener("click", Exit);
+    document.getElementById("exit").addEventListener("click", Exit('01-hello'));
 
     // go back to intro after 30seconds
-    SetExitTimer(30 * 1000);
+    SetExitTimer('01-hello', 30 * 1000);
 }
