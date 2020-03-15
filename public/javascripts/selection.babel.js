@@ -34,7 +34,7 @@
 
             $dot.classList.add('active-dot');
 
-            $e.append(_$dot);
+            $e.append($dot);
         }
         else {
             $dot = $e.getElementsByClassName("active-dot")[0];
@@ -42,6 +42,7 @@
 
         var bounds = $e.getBoundingClientRect();
         var dotBounds = $dot.getBoundingClientRect();
+        document.body.innerText = pos.pageX + " | " + pos.pageY;
 
         var dotPos = {
             x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width / 2,
@@ -58,10 +59,6 @@
             }
         });
         eventElem.dispatchEvent(event);
-
-        document.body.innerText = pos.pageX + " | " + pos.pageY;
-
-
     };
     /* events handling to control the surface */
     // mouse controls
