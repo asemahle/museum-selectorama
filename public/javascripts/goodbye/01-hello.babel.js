@@ -6,21 +6,28 @@ var selectedUser = null;
 var $selection = null;
 
 function UpdateList() {
-    fetch('/data', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(function (response) {
-        return response.json();
-    }).then(function (data) {
-        document.body.innerText = "Good";
+    function reqListener() {
+        var data = JSON.parse(this.response);
         console.log('Success:', data);
         RenderList(data);
-    }).catch(function (error) {
-        document.body.innerText = "Bad";
-        console.error('Error:', error);
-    });
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "/data");
+    oReq.send(); // fetch('/data', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    // }).then((response) => response.json())
+    //     .then((data) => {
+    //         console.log('Success:', data);
+    //         RenderList(data);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
 }
 
 function RenderList(data) {
