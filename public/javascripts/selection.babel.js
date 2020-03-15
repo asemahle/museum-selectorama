@@ -35,7 +35,6 @@
 
             $e.append(_$dot);
         }
-        return;
 
         var $dot = $e.getElementsByClassName("active-dot")[0];
         var dotBounds = $dot.getBoundingClientRect();
