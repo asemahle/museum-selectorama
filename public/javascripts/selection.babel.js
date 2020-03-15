@@ -25,20 +25,20 @@
         if (!mousedown) return;
         var $e = document.getElementById("selection-area");
 
+        var $dot = null;
         if (first) {
             first = false;
             var $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
 
-            var _$dot = $parentDot.cloneNode(true);
+            $dot = $parentDot.cloneNode(true);
 
-            _$dot.classList.add('active-dot');
+            $dot.classList.add('active-dot');
 
             $e.append(_$dot);
         }
-
-        var $dot = $e.getElementsByClassName("active-dot")[0];
-
-
+        else {
+            $dot = $e.getElementsByClassName("active-dot")[0];
+        }
 
         var bounds = $e.getBoundingClientRect();
         document.body.innerText = pos.pageX + " ||| " + pos.pageY;
