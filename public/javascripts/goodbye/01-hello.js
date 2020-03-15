@@ -10,12 +10,10 @@ function UpdateList() {
         },
     }).then((response) => response.json())
         .then((data) => {
-            document.body.innerText = "Good";
             console.log('Success:', data);
             RenderList(data);
         })
         .catch((error) => {
-            document.body.innerText = "Bad";
             console.error('Error:', error);
         });
 }
