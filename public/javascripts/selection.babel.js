@@ -40,13 +40,13 @@
         var dotBounds = $dot.getBoundingClientRect();
         var bounds = $e.getBoundingClientRect();
         var dotPos = {
-            x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width / 2,
-            y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height / 2
+            x: clamp(pos.pageX - bounds.left, 0, bounds.width) - dotBounds.width / 2,
+            y: clamp(pos.pageY - bounds.top - window.scrollY, 0, bounds.height) - dotBounds.height / 2
         };
         $dot.style.left = dotPos.x + "px";
         $dot.style.top = dotPos.y + "px";
-        var x = (dotPos.x + dotBounds.width / 2 - bounds.x) / bounds.width * 2 - 1;
-        var y = (dotPos.y + dotBounds.height / 2 - bounds.y) / bounds.height * -2 + 1;
+        var x = (dotPos.x + dotBounds.width / 2 - bounds.left) / bounds.width * 2 - 1;
+        var y = (dotPos.y + dotBounds.height / 2 - bounds.top) / bounds.height * -2 + 1;
         var event = new CustomEvent("update", {
             detail: {
                 x: x,
