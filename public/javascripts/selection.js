@@ -33,7 +33,7 @@
             let $parentDot = document.getElementById("dot-spawn").getElementsByClassName("dot")[0];
             let $dot = $parentDot.cloneNode(true);
             $dot.classList.add('active-dot');
-            $e.append($dot);
+            $e.appendChild($dot);
         }
         let $dot = $e.getElementsByClassName("active-dot")[0];
         let dotBounds = $dot.getBoundingClientRect();
