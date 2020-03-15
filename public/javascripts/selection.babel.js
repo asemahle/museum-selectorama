@@ -41,8 +41,6 @@
         }
 
         var bounds = $e.getBoundingClientRect();
-        document.body.innerText = pos.pageX + " ||| " + pos.pageY;
-
         var dotBounds = $dot.getBoundingClientRect();
 
         var dotPos = {
@@ -60,6 +58,9 @@
             }
         });
         eventElem.dispatchEvent(event);
+
+        document.body.innerText = pos.pageX + " | " + pos.pageY;
+
 
     };
     /* events handling to control the surface */
