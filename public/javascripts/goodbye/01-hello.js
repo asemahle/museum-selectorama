@@ -83,7 +83,7 @@ function run() {
             id: selectedUser.ID,
             name: selectedUser.DISPLAY_ID,
         };
-        window.location.assign("/goodbye/02-input-feelings?id=" + encodeGetParams(params));
+        window.location.assign("/goodbye/02-input-feelings?id=" + encodeURIComponent(selectedUser.ID) + "&name=" + encodeURIComponent(selectedUser.DISPLAY_ID));
     });
 
     // go to next page on 'cannot find myself'
