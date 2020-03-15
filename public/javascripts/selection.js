@@ -39,16 +39,16 @@
         let dotBounds = $dot.getBoundingClientRect();
         let bounds = $e.getBoundingClientRect();
         let dotPos = {
-            x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width/2,
-            y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height/2
+            x: clamp(pos.pageX - bounds.left, 0, bounds.width) - dotBounds.width/2,
+            y: clamp(pos.pageY - bounds.top - window.scrollY, 0, bounds.height) - dotBounds.height/2
         };
 
 
         $dot.style.left = dotPos.x + "px";
         $dot.style.top = dotPos.y + "px";
 
-        let x = ((dotPos.x + dotBounds.width/2 - bounds.x) / bounds.width) * 2 - 1;
-        let y = ((dotPos.y + dotBounds.height/2 - bounds.y) / bounds.height) * -2 + 1;
+        let x = ((dotPos.x + dotBounds.width/2 - bounds.left) / bounds.width) * 2 - 1;
+        let y = ((dotPos.y + dotBounds.height/2 - bounds.top) / bounds.height) * -2 + 1;
 
         let event = new CustomEvent("update", {
             detail: {
@@ -57,7 +57,6 @@
             }
         });
         eventElem.dispatchEvent(event);
-        document.body.innerText += "| x: " + x + " y: " + y;
     };
 
     /* events handling to control the surface */
