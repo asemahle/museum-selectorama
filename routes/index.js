@@ -15,6 +15,10 @@ router.get('/hello/03-thank-you', function(req, res, next) {
 });
 
 /* GET Goodbye */
+router.get('/goodbye/00-welcome-back', function(req, res, next) {
+  res.render('goodbye/00-welcome-back');
+});
+
 router.get('/goodbye/01-hello', function(req, res, next) {
   res.render('goodbye/01-hello');
 });
