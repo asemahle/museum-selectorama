@@ -35,11 +35,13 @@
 
             $e.append(_$dot);
         }
-        document.body.innerText = pos.pageX + " || " + pos.pageY;
 
         var $dot = $e.getElementsByClassName("active-dot")[0];
         var dotBounds = $dot.getBoundingClientRect();
         var bounds = $e.getBoundingClientRect();
+
+        document.body.innerText = pos.pageX + " || " + pos.pageY;
+
         var dotPos = {
             x: clamp(pos.pageX - bounds.x, 0, bounds.width) - dotBounds.width / 2,
             y: clamp(pos.pageY - bounds.y - window.scrollY, 0, bounds.height) - dotBounds.height / 2
