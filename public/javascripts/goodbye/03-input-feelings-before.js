@@ -1,6 +1,6 @@
 // go back on 'restart'
 document.getElementById("restart").addEventListener("click", function() {
-    window.location.assign("/goodbye/01-hello");
+    window.location.assign("/goodbye/00-welcome-back");
 });
 
 // selection area controls
@@ -23,4 +23,4 @@ document.getElementById("next").addEventListener("click", function() {
 });
 
 // go back to intro after timeout
-SetExitTimer();
+SetExitTimer('00-welcome-back');

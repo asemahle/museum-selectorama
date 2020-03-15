@@ -37,23 +37,8 @@ function run() {
             y: point.y
         }));
 
-        // fetch('/data', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         displayID: name,
-        //         x: point.x,
-        //         y: point.y
-        //     }),
-        // }).then((data) => {
-        //     window.location.assign("/hello/03-thank-you?" + encodeGetParams({name: name}));
-        // }).catch((error) => {
-        //     window.location.assign("/hello/03-thank-you?" + encodeGetParams({name: name}));
-        // });
     });
 
     // go back to intro after timeout
-    SetExitTimer();
+    SetExitTimer('01-hello');
 }

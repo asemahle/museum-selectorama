@@ -15,19 +15,7 @@ function UpdateList() {
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
     oReq.open("GET", "/data");
-    oReq.send(); // fetch('/data', {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    // }).then((response) => response.json())
-    //     .then((data) => {
-    //         console.log('Success:', data);
-    //         RenderList(data);
-    //     })
-    //     .catch((error) => {
-    //         console.error('Error:', error);
-    //     });
+    oReq.send();
 }
 
 function RenderList(data) {
@@ -121,4 +109,5 @@ function run() {
     }, false); // initial update
 
     UpdateList();
+    SetExitTimer('00-welcome-back', 30 * 1000);
 }
